@@ -12,11 +12,14 @@ class Login extends StatefulWidget {
   static const String routeName = 'login';
 
   const Login({super.key});
+
   @override
   State<Login> createState() => _LoginState();
 }
+
 class _LoginState extends State<Login> {
   bool isPassword = true;
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AppProvider>(context);
@@ -24,7 +27,7 @@ class _LoginState extends State<Login> {
     var emailController = TextEditingController();
     var formValidate = GlobalKey<FormState>();
     return Container(
-      color: Colors.white,
+      color: thirdColor,
       child: Stack(
         children: [
           Scaffold(
@@ -38,19 +41,25 @@ class _LoginState extends State<Login> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.asset('assets/logo.png'),
+                      //SizedBox(height: 3,),
+                      //Text('i School Bus',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                       SizedBox(
                         height: 20,
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 300),
-                        child: Text(
-                          'Email Address',
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8.0,
-                      ),
+                      Padding(padding: EdgeInsets.only(right: 120,),child: Text('Welcome To i School Bus',style: TextStyle(color: primaryColor,fontWeight: FontWeight.bold,fontSize: 20.0),),),
+                      // SizedBox(height: 1.0,),
+                      // Padding(padding: EdgeInsets.only(right: 285,),child: Text('ISB',style: TextStyle(color: primaryColor,fontWeight: FontWeight.bold,fontSize: 20.0),),),
+                      SizedBox(height: 15.0,),
+                      // Padding(
+                      //   padding: EdgeInsets.only(right: 300),
+                      //   child: Text(
+                      //     'ID',
+                      //     style: TextStyle(fontSize: 15,color: Colors.white),
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: 8.0,
+                      // ),
                       Padding(
                         padding: EdgeInsets.all(10.0),
                         child: defaultFormField(
@@ -58,46 +67,50 @@ class _LoginState extends State<Login> {
                             onSubmit: (value) => print(value),
                             validate: (String? value) {
                               if (value!.isEmpty) {
-                                return 'email address must not be empty';
+                                return 'id must not be empty';
                               }
                               return null;
                             },
                             controller: emailController,
                             type: TextInputType.emailAddress,
-                            label: 'Enter Your Email'),
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 300),
-                        child: Text(
-                          'Password',
-                          style: TextStyle(fontSize: 15),
+                            label: 'Enter Your ID'
                         ),
                       ),
-                      SizedBox(
-                        height: 8.0,
-                      ),
+                      // SizedBox(
+                      //   height: 10.0,
+                      // ),
+                      // Padding(
+                      //   padding: EdgeInsets.only(right: 300),
+                      //   child: Text(
+                      //     'Password',
+                      //     style: TextStyle(fontSize: 15,color: Colors.white),
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: 8.0,
+                      // ),
                       Padding(
                         padding: EdgeInsets.all(10.0),
                         child: defaultFormField(
-                            controller: passwordController,
+                          controller: passwordController,
                           type: TextInputType.visiblePassword,
-                            isPassword: isPassword,
-                            suffix: isPassword == true ? Icons.visibility_off : Icons.visibility,
+                          isPassword: isPassword,
+                          suffix: isPassword == true
+                              ? Icons.visibility_off
+                              : Icons.visibility,
                           onChange: (String value) => print(value),
                           onSubmit: (String value) => print(value),
-                            validate: (String? value) {
-                              if (value!.isEmpty) {
-                                return 'password must not be empty';
-                              }
-                              return null;
-                            },
-                            label: 'Enter your password',
-                          suffixPressed:(){
-                            isPassword = !isPassword;
-                            setState(() {});
+                          validate: (String? value) {
+                            if (value!.isEmpty) {
+                              return 'password must not be empty';
+                            }
+                            return null;
+                          },
+                          label: 'Enter your password',
+                          suffixPressed: () {
+                            setState(() {
+                              isPassword = !isPassword;
+                            });
                           },
                         ),
                       ),
@@ -108,16 +121,19 @@ class _LoginState extends State<Login> {
                           textStyle: Colors.black,
                           background: primaryColor,
                           function: () async {
-                      if (formValidate.currentState!.validate()) {
-                      print(emailController.text);
-                      print(passwordController.text);
-                      var message = await provider.signIn(emailController.text, passwordController.text);
-                      if(message == 'Done'){
-                        Navigator.pushNamedAndRemoveUntil(context, Home.routeName, (route) => false);
-                      }else{
-                        DialogUtils.showDialogMessage(context, message);
-                      }
-                      }
+                            if (formValidate.currentState!.validate()) {
+                              print(emailController.text);
+                              print(passwordController.text);
+                              var message = await provider.signIn(
+                                  emailController.text,
+                                  passwordController.text);
+                              if (message == 'Done') {
+                                Navigator.pushNamedAndRemoveUntil(
+                                    context, Home.routeName, (route) => false);
+                              } else {
+                                DialogUtils.showDialogMessage(context, message);
+                              }
+                            }
                           },
                           text: 'Continue'),
                       const SizedBox(
@@ -126,10 +142,17 @@ class _LoginState extends State<Login> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text('Don\'t have an account?'),
+                          const Text('Create Account?',style: TextStyle(color: Colors.grey,),),
                           TextButton(
-                            onPressed: () {Navigator.pushNamed(context, Register.routeName);},
-                            child: const Text('Register now',style: TextStyle(color: Color(0xfff2ba52),),),
+                            onPressed: () {
+                              Navigator.pushNamed(context, Register.routeName);
+                            },
+                            child: const Text(
+                              'Sign Up',
+                              style: TextStyle(
+                                color: Color(0xfff2ba52),
+                              ),
+                            ),
                           ),
                         ],
                       ),

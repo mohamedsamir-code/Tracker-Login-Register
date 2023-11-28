@@ -10,7 +10,7 @@ class TakeCateOfChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: thirdColor,
       child: Stack(
         children: [
           Scaffold(
@@ -30,28 +30,28 @@ class TakeCateOfChild extends StatelessWidget {
                   ),
                   Text(
                     'Take Care Of Your Child',
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 32),
+                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 32,color: Colors.white),
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   Text(
                     'When your child boards the bus your child\'s',
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 15,color: Colors.white),
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   Text(
                     'attendance will be registered and you can monitor',
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 15,color: Colors.white),
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   Text(
                     'them safely until he reaches at school',
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 15,color: Colors.white),
                   ),
                   SizedBox(
                     height: 20,

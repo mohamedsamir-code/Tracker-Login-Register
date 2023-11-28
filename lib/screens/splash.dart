@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:tracker_login_register/screens/arrived_bus.dart';
 
+import '../shared/constant.dart';
+
 class Splash extends StatefulWidget {
   static const String routeName = 'splash';
 
@@ -23,12 +25,12 @@ class _SplashState extends State<Splash> {
   }
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: thirdColor,
       child: Stack(
         children: [
           Scaffold(
             backgroundColor: Colors.transparent,
-            body: Center(child: Image.asset('assets/tracker_logo.png')),
+            body: Center(child: Image.asset('assets/i_school_bus.png')),
           )
         ],
       ),

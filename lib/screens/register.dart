@@ -22,10 +22,13 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     var provider = Provider.of<AppProvider>(context);
     var passwordController = TextEditingController();
+    var confirmPasswordController = TextEditingController();
     var emailController = TextEditingController();
+    var phoneController = TextEditingController();
+    var userNameController = TextEditingController();
     var formValidate = GlobalKey<FormState>();
     return Container(
-      color: Colors.white,
+      color: thirdColor,
       child: Stack(
         children: [
           Scaffold(
@@ -39,19 +42,50 @@ class _RegisterState extends State<Register> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.asset('assets/logo.png'),
+                      //SizedBox(height: 3,),
+                      //Text('i School Bus',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                       SizedBox(
                         height: 20,
                       ),
+                      Padding(padding: EdgeInsets.only(right: 200,),child: Text('Create Account',style: TextStyle(color: primaryColor,fontWeight: FontWeight.bold,fontSize: 20.0),),),
+                      // SizedBox(height: 1.0,),
+                      // Padding(padding: EdgeInsets.only(right: 265,),child: Text('Account',style: TextStyle(color: primaryColor,fontWeight: FontWeight.bold,fontSize: 20.0),),),
+                       SizedBox(height: 15.0,),
+                      // Padding(
+                      //   padding: EdgeInsets.only(right: 300),
+                      //   child: Text(
+                      //     'User Name',
+                      //     style: TextStyle(fontSize: 15,color: Colors.white),
+                      //   ),
+                      // ),
                       Padding(
-                        padding: EdgeInsets.only(right: 300),
-                        child: Text(
-                          'Email Address',
-                          style: TextStyle(fontSize: 15),
-                        ),
+                        padding: EdgeInsets.all(10.0),
+                        child: defaultFormField(
+                            onChange: (value) => print(value),
+                            onSubmit: (value) => print(value),
+                            validate: (String? value) {
+                              if (value!.isEmpty) {
+                                return 'user name is required';
+                              }
+                              return null;
+                            },
+                            controller: userNameController,
+                            type: TextInputType.name,
+                            label: 'Enter Your User Name'),
                       ),
                       SizedBox(
                         height: 8.0,
                       ),
+                      // Padding(
+                      //   padding: EdgeInsets.only(right: 300),
+                      //   child: Text(
+                      //     'Email Address',
+                      //     style: TextStyle(fontSize: 15,color: Colors.white),
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: 8.0,
+                      // ),
                       Padding(
                         padding: EdgeInsets.all(10.0),
                         child: defaultFormField(
@@ -70,16 +104,44 @@ class _RegisterState extends State<Register> {
                       SizedBox(
                         height: 8.0,
                       ),
+                      // Padding(
+                      //   padding: EdgeInsets.only(right: 300),
+                      //   child: Text(
+                      //     'Number',
+                      //     style: TextStyle(fontSize: 15,color: Colors.white),
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: 8.0,
+                      // ),
                       Padding(
-                        padding: EdgeInsets.only(right: 300),
-                        child: Text(
-                          'Password',
-                          style: TextStyle(fontSize: 15),
-                        ),
+                        padding: EdgeInsets.all(10.0),
+                        child: defaultFormField(
+                            onChange: (value) => print(value),
+                            onSubmit: (value) => print(value),
+                            validate: (String? value) {
+                              if (value!.isEmpty) {
+                                return 'phone is required';
+                              }
+                              return null;
+                            },
+                            controller: phoneController,
+                            type: TextInputType.phone,
+                            label: 'Enter Your Number'),
                       ),
                       SizedBox(
                         height: 8.0,
                       ),
+                      // Padding(
+                      //   padding: EdgeInsets.only(right: 300),
+                      //   child: Text(
+                      //     'Password',
+                      //     style: TextStyle(fontSize: 15,color: Colors.white),
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: 8.0,
+                      // ),
                       Padding(
                         padding: EdgeInsets.all(10.0),
                         child: defaultFormField(
@@ -105,6 +167,43 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                       SizedBox(
+                        height: 8.0,
+                      ),
+                      // Padding(
+                      //   padding: EdgeInsets.only(right: 300),
+                      //   child: Text(
+                      //     'Confirm Password',
+                      //     style: TextStyle(fontSize: 15,color: Colors.white),
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: 8.0,
+                      // ),
+                      Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: defaultFormField(
+                          controller: confirmPasswordController,
+                          type: TextInputType.visiblePassword,
+                          isPassword: isPassword,
+                          suffix: isPassword == true
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          onChange: (String value) => print(value),
+                          onSubmit: (String value) => print(value),
+                          validate: (String? value) {
+                            if (value!.isEmpty) {
+                              return 'confirming a password is required';
+                            }
+                            return null;
+                          },
+                          label: 'Enter a confirm password',
+                          suffixPressed: () {
+                            isPassword = !isPassword;
+                            setState(() {});
+                          },
+                        ),
+                      ),
+                      SizedBox(
                         height: 80,
                       ),
                       defaultButton(
@@ -112,9 +211,13 @@ class _RegisterState extends State<Register> {
                           background: primaryColor,
                           function: () async {
                             if (formValidate.currentState!.validate()) {
+                              print(userNameController.text);
                               print(emailController.text);
                               print(passwordController.text);
-                              var message = await provider.signUp(emailController.text, passwordController.text);
+                              print(confirmPasswordController.text);
+                              print(phoneController.text);
+                              var message = await provider.signUp(emailController.text, passwordController.text, confirmPasswordController.text, userNameController.text,phoneController.text);
+                              //var m = await provider.verifyWithPhone(phoneController.text);
                               if(message == 'Done'){
                                 Navigator.pushNamedAndRemoveUntil(context, Home.routeName, (route) => false);
                               }else{
@@ -122,20 +225,20 @@ class _RegisterState extends State<Register> {
                               }
                             }
                           },
-                          text: 'Continue'),
+                          text: 'Sign up'),
                       const SizedBox(
                         height: 10.0,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text('Already have an account?'),
+                          const Text('Back to',style: TextStyle(color: Colors.grey,),),
                           TextButton(
                             onPressed: () {
                               Navigator.pushNamed(context, Login.routeName);
                             },
                             child: const Text(
-                              'Login now',
+                              'Login',
                               style: TextStyle(
                                 color: Color(0xfff2ba52),
                               ),

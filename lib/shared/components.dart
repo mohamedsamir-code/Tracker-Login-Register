@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:tracker_login_register/shared/constant.dart';
 
 
 Widget defaultButton({
@@ -26,7 +25,7 @@ Widget defaultFormField({
   bool isPassword = false,
   IconData? suffix,
   String? Function(String?)? validate,
-  required String label,
+  String? label,
   VoidCallback? suffixPressed,
 }) =>
     TextFormField(
@@ -41,7 +40,9 @@ Widget defaultFormField({
       },
       decoration: InputDecoration(
         labelText: label,
+        labelStyle: TextStyle(color: Colors.white),
         suffixIcon: IconButton(
+          color: Colors.white,
           onPressed:suffixPressed,
           icon: suffix != null ? Icon(suffix,) : Icon(suffix = null),
         ),
