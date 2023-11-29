@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tracker_login_register/screens/face_recognition.dart';
 import 'package:tracker_login_register/screens/live.dart';
 import 'package:tracker_login_register/screens/student_sheet.dart';
 import 'package:tracker_login_register/screens/today_trip.dart';
 import 'package:tracker_login_register/shared/constant.dart';
+
+import 'face_recognition.dart';
 
 class Home extends StatefulWidget {
   Home({super.key});
@@ -51,18 +52,21 @@ class _HomeState extends State<Home> {
             // ),
             body: screens[currentIndex],
             bottomNavigationBar: BottomNavigationBar(
+              showUnselectedLabels: true,
               currentIndex: currentIndex,
               onTap: (value) {
                 setState(() {
                   currentIndex = value;
                 });
               },
+              unselectedItemColor: Colors.white,
+              selectedItemColor: primaryColor,
               items:
               [
-               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_today_trip.png')),label: 'Today Trip',backgroundColor: secondryColor),
-               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_live.png')),label: 'Live',backgroundColor: secondryColor),
-               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_face_recognition.png')),label: 'Face Recognition',backgroundColor: secondryColor),
-               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_student_sheet.png')),label: 'Student Sheet',backgroundColor: secondryColor),
+               BottomNavigationBarItem(icon: Icon(Icons.directions_bus_rounded),label: 'Today Trip',backgroundColor: secondryColor),
+               BottomNavigationBarItem(icon: Icon(Icons.location_on_outlined),label: 'Live',backgroundColor: secondryColor),
+               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_face_recognition.png'),),label: 'Face Recognition',backgroundColor: secondryColor),
+               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_student_sheet.png'),),label: 'Student Sheet',backgroundColor: secondryColor),
             ],
             ),
           )

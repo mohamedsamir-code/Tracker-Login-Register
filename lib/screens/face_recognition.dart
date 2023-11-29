@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tracker_login_register/screens/face_recognition_2.dart';
 class FaceRecognition extends StatelessWidget {
   const FaceRecognition({super.key});
   static const String routeName = 'face-recognition';
@@ -111,6 +112,9 @@ class FaceRecognition extends StatelessWidget {
             ),
           ),
         ),
+        Image(image: AssetImage('assets/face_id.png'),),
+        SizedBox(height: 80.0,),
+        InkWell(child: Image(image: AssetImage('assets/get_started_container.png',),height: 56,width: 396,),onTap: () => Navigator.pushNamed(context, FaceRecognitionTwo.routeName),),
       ],
     );
   }

@@ -4,7 +4,7 @@ class StudentSheet extends StatelessWidget {
   static const String routeName = 'student-sheet';
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return SingleChildScrollView(child: Column(
       children: [
         Padding(
           padding: EdgeInsets.all(
@@ -111,7 +111,43 @@ class StudentSheet extends StatelessWidget {
             ),
           ),
         ),
+        Padding(padding: EdgeInsets.all(30,),child: Row(
+          children: [
+            Image(image: AssetImage('assets/ahmed_mohamed.png')),
+            SizedBox(width: 10,),
+            Image(image: AssetImage('assets/hour_mohamed.png'),width: 100,height: 130,),
+            SizedBox(width: 10,),
+            Image(image: AssetImage('assets/kenzi_ahmed.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(30),child: Row(
+          children: [
+            Image(image: AssetImage('assets/adam_omar.png'),width: 100,height: 126,),
+            SizedBox(width: 10,),
+            Image(image: AssetImage('assets/jana_morad.png'),width: 100,height: 126,),
+            SizedBox(width: 10,),
+            Image(image: AssetImage('assets/maya_mohamed.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(30,),child: Row(
+          children: [
+            Image(image: AssetImage('assets/mohamed_noah.png'),width: 100,height: 126,),
+            SizedBox(width: 10,),
+            Image(image: AssetImage('assets/rahaf_noah.png'),width: 100,height: 126,),
+            SizedBox(width: 10,),
+            Image(image: AssetImage('assets/mila.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(30,),child: Row(
+          children: [
+            Image(image: AssetImage('assets/omar_ibrahim.png'),width: 100,height: 126,),
+            SizedBox(width: 10,),
+            Image(image: AssetImage('assets/lian_mohamed.png'),width: 100,height: 126,),
+            SizedBox(width: 10,),
+            Image(image: AssetImage('assets/yazan_adam.png'),width: 100,height: 126,),
+          ],
+        ),),
       ],
-    );
+    ),);
   }
 }

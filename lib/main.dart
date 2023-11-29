@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tracker_login_register/screens/arrived_bus.dart';
 import 'package:tracker_login_register/screens/face_recognition.dart';
+import 'package:tracker_login_register/screens/face_recognition_2.dart';
 import 'package:tracker_login_register/screens/home.dart';
 import 'package:tracker_login_register/screens/live.dart';
 import 'package:tracker_login_register/screens/login.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
         TodayTrip.routeName : (context) => TodayTrip(),
         Live.routeName : (context) => Live(),
         FaceRecognition.routeName : (context) => FaceRecognition(),
+        FaceRecognitionTwo.routeName : (context) => FaceRecognitionTwo(),
       },
     );
   }

@@ -121,13 +121,13 @@ class _RegisterState extends State<Register> {
                             onSubmit: (value) => print(value),
                             validate: (String? value) {
                               if (value!.isEmpty) {
-                                return 'phone is required';
+                                return 'phone number is required';
                               }
                               return null;
                             },
                             controller: phoneController,
                             type: TextInputType.phone,
-                            label: 'Enter Your Number'),
+                            label: 'Enter Your Phone Number'),
                       ),
                       SizedBox(
                         height: 8.0,
@@ -156,6 +156,9 @@ class _RegisterState extends State<Register> {
                           validate: (String? value) {
                             if (value!.isEmpty) {
                               return 'password is required';
+                            }
+                            if(value.length<6){
+                              return 'password should at least 6 characters';
                             }
                             return null;
                           },
@@ -193,6 +196,9 @@ class _RegisterState extends State<Register> {
                           validate: (String? value) {
                             if (value!.isEmpty) {
                               return 'confirming a password is required';
+                            }
+                            if(passwordController.text != value){
+                              return 'password doesn\'t match';
                             }
                             return null;
                           },

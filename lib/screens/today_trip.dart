@@ -111,6 +111,10 @@ class TodayTrip extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(height: 20.0,),
+        Image(image: AssetImage('assets/today_trip_container.png'),height: 250,width: 386,),
+        SizedBox(height: 20.0,),
+        Image(image: AssetImage('assets/today_trip_container.png'),height: 250,width: 386,),
       ],
     );
   }
