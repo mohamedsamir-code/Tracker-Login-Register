@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:tracker_login_register/screens/face_recognition.dart';
+import 'package:tracker_login_register/screens/live.dart';
+import 'package:tracker_login_register/screens/student_sheet.dart';
+import 'package:tracker_login_register/screens/today_trip.dart';
 import 'package:tracker_login_register/shared/constant.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Home extends StatefulWidget {
+  Home({super.key});
 
   static const String routeName = 'home';
-
+  @override
+  State<Home> createState() => _HomeState();
+}
+class _HomeState extends State<Home> {
+  int currentIndex = 0;
+  List<Widget> screens = [TodayTrip(),Live(),FaceRecognition(),StudentSheet()];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+
     return Container(
       color: thirdColor,
       child: Stack(
@@ -34,114 +49,21 @@ class Home extends StatelessWidget {
             //   ),),
             //   centerTitle: true,
             // ),
-
-            body: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(
-                    30,
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            20.0,
-                          ),
-                        )),
-                    width: double.infinity,
-                    height: 40.0,
-                    child: Row(
-                      children: [
-                        IconButton(
-                          onPressed: () => Drawer(
-                            backgroundColor: thirdColor,
-                            child: ListView(
-                              children: [
-                                const DrawerHeader(
-                                  decoration: BoxDecoration(
-                                    color: Color(0xff0C344C),
-                                  ),
-                                  child: Image(
-                                    image: AssetImage(
-                                      'assets/logo.png',
-                                    ),
-                                  ),
-                                ),
-                                ListTile(
-                                  title: const Image(
-                                    image: AssetImage(
-                                      'assets/today_trips.png',
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    // Update the state of the app.
-                                    // ...
-                                  },
-                                ),
-                                ListTile(
-                                  title: const Image(
-                                    image: AssetImage(
-                                      'assets/live.png',
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    // Update the state of the app.
-                                    // ...
-                                  },
-                                ),
-                                ListTile(
-                                  title: const Image(
-                                    image: AssetImage(
-                                      'assets/face_recongnition.png',
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    // Update the state of the app.
-                                    // ...
-                                  },
-                                ),
-                                ListTile(
-                                  title: const Image(
-                                    image: AssetImage(
-                                      'assets/student_sheet.png',
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    // Update the state of the app.
-                                    // ...
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                          icon: Icon(
-                            Icons.menu,
-                            color: Colors.black,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 50.0,
-                        ),
-                        Text(
-                          'Today Trips',
-                          style: TextStyle(
-                              fontSize: 20.0, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 60.0,
-                        ),
-                        Stack(
-                          children: [
-                            Padding(padding: EdgeInsets.symmetric(horizontal: 25,vertical: 10),child: CircleAvatar(backgroundColor: Colors.red,radius: 3.0,)),
-                            IconButton(onPressed: () => print('notification'), icon: Icon(Icons.notifications_none,color: Colors.black),)
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+            body: screens[currentIndex],
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: currentIndex,
+              onTap: (value) {
+                setState(() {
+                  currentIndex = value;
+                });
+              },
+              items:
+              [
+               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_today_trip.png')),label: 'Today Trip',backgroundColor: secondryColor),
+               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_live.png')),label: 'Live',backgroundColor: secondryColor),
+               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_face_recognition.png')),label: 'Face Recognition',backgroundColor: secondryColor),
+               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_student_sheet.png')),label: 'Student Sheet',backgroundColor: secondryColor),
+            ],
             ),
           )
         ],
