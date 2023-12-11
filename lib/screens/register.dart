@@ -5,6 +5,7 @@ import 'package:tracker_login_register/shared/app_provider.dart';
 
 import '../shared/components.dart';
 import '../shared/constant.dart';
+import '../shared/email_validator.dart';
 import '../shared/utils.dart';
 import 'login.dart';
 
@@ -25,7 +26,8 @@ class _RegisterState extends State<Register> {
     var confirmPasswordController = TextEditingController();
     var emailController = TextEditingController();
     var phoneController = TextEditingController();
-    var userNameController = TextEditingController();
+    var firstNameController = TextEditingController();
+    var lastNameController = TextEditingController();
     var formValidate = GlobalKey<FormState>();
     return Container(
       color: thirdColor,
@@ -65,13 +67,31 @@ class _RegisterState extends State<Register> {
                             onSubmit: (value) => print(value),
                             validate: (String? value) {
                               if (value!.isEmpty) {
-                                return 'user name is required';
+                                return 'first name is required';
                               }
                               return null;
                             },
-                            controller: userNameController,
+                            controller: firstNameController,
                             type: TextInputType.name,
-                            label: 'Enter Your User Name'),
+                            label: 'Enter Your First Name'),
+                      ),
+                      SizedBox(
+                        height: 8.0,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: defaultFormField(
+                            onChange: (value) => print(value),
+                            onSubmit: (value) => print(value),
+                            validate: (String? value) {
+                              if (value!.isEmpty) {
+                                return 'last name is required';
+                              }
+                              return null;
+                            },
+                            controller: lastNameController,
+                            type: TextInputType.name,
+                            label: 'Enter Your Last Name'),
                       ),
                       SizedBox(
                         height: 8.0,
@@ -94,6 +114,9 @@ class _RegisterState extends State<Register> {
                             validate: (String? value) {
                               if (value!.isEmpty) {
                                 return 'email is required';
+                              }
+                              if(!isValidEmail(value)){
+                                return 'email bad format';
                               }
                               return null;
                             },
@@ -217,12 +240,13 @@ class _RegisterState extends State<Register> {
                           background: primaryColor,
                           function: () async {
                             if (formValidate.currentState!.validate()) {
-                              print(userNameController.text);
+                              print(firstNameController.text);
+                              print(lastNameController.text);
                               print(emailController.text);
                               print(passwordController.text);
                               print(confirmPasswordController.text);
                               print(phoneController.text);
-                              var message = await provider.signUp(emailController.text, passwordController.text, confirmPasswordController.text, userNameController.text,phoneController.text);
+                              var message = await provider.signUp(emailController.text, passwordController.text, confirmPasswordController.text, firstNameController.text , lastNameController.text,phoneController.text);
                               //var m = await provider.verifyWithPhone(phoneController.text);
                               if(message == 'Done'){
                                 Navigator.pushNamedAndRemoveUntil(context, Home.routeName, (route) => false);

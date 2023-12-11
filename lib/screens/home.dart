@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tracker_login_register/screens/live.dart';
+import 'package:tracker_login_register/screens/setting.dart';
 import 'package:tracker_login_register/screens/student_sheet.dart';
 import 'package:tracker_login_register/screens/today_trip.dart';
 import 'package:tracker_login_register/shared/constant.dart';
@@ -15,7 +16,7 @@ class Home extends StatefulWidget {
 }
 class _HomeState extends State<Home> {
   int currentIndex = 0;
-  List<Widget> screens = [TodayTrip(),Live(),FaceRecognition(),StudentSheet()];
+  List<Widget> screens = [TodayTrip(),Live(),FaceRecognition(),StudentSheet(),Setting()];
   @override
   void initState() {
     // TODO: implement initState
@@ -67,6 +68,7 @@ class _HomeState extends State<Home> {
                BottomNavigationBarItem(icon: Icon(Icons.location_on_outlined),label: 'Live',backgroundColor: secondryColor),
                BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_face_recognition.png'),),label: 'Face Recognition',backgroundColor: secondryColor),
                BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_student_sheet.png'),),label: 'Student Sheet',backgroundColor: secondryColor),
+               BottomNavigationBarItem(icon: Icon(Icons.settings),label: 'Setting',backgroundColor: secondryColor),
             ],
             ),
           )

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tracker_login_register/screens/home.dart';
 import 'package:tracker_login_register/screens/register.dart';
 import 'package:tracker_login_register/shared/constant.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../shared/app_provider.dart';
 import '../shared/components.dart';
 import '../shared/utils.dart';
@@ -19,12 +19,29 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool isPassword = true;
-
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      // Name, email address, and profile photo URL
+      // final name = user.displayName;
+      // final email = user.email;
+      // final photoUrl = user.photoURL;
+
+      // Check if user's email is verified
+      // final emailVerified = user.emailVerified;
+
+      // The user's ID, unique to the Firebase project. Do NOT use this value to
+      // authenticate with your backend server, if you have one. Use
+      // User.getIdToken() instead.
+      final uid = user.uid;
+    }
+// Check if the user is signed in
+    //String uid = user.uid; // <-- User ID
+    //String? email = user.email; // <-- Their email
     var provider = Provider.of<AppProvider>(context);
     var passwordController = TextEditingController();
-    var emailController = TextEditingController();
+    var idController = TextEditingController();
     var formValidate = GlobalKey<FormState>();
     return Container(
       color: thirdColor,
@@ -62,19 +79,45 @@ class _LoginState extends State<Login> {
                       // ),
                       Padding(
                         padding: EdgeInsets.all(10.0),
-                        child: defaultFormField(
-                            onChange: (value) => print(value),
-                            onSubmit: (value) => print(value),
-                            validate: (String? value) {
-                              if (value!.isEmpty) {
-                                return 'id must not be empty';
-                              }
-                              return null;
-                            },
-                            controller: emailController,
-                            type: TextInputType.emailAddress,
-                            label: 'Enter Your ID'
-                        ),
+                        child:
+                        // TextFormField(
+                        //   initialValue: user!.uid,
+                        //   controller: idController,
+                        //   keyboardType: TextInputType.text,
+                        //   onChanged: (value) {
+                        //     print(value);
+                        //   },
+                        //   obscureText: isPassword,
+                        //   onFieldSubmitted: (value) {
+                        //     print(value);
+                        //   },
+                        //   decoration: InputDecoration(
+                        //     labelText: 'enter your id',
+                        //     labelStyle: TextStyle(color: Colors.white),
+                        //     // suffixIcon: IconButton(
+                        //     //   color: Colors.white,
+                        //     //   onPressed:suffixPressed,
+                        //     //   icon: suffix != null ? Icon(suffix,) : Icon(suffix = null),
+                        //     // ),
+                        //     border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(25,),),),
+                        //   ),
+                        //   validator: (value) {
+                        //     return value;
+                        //   },
+                        // ),
+                         defaultFormField(
+                             onChange: (value) => print(value),
+                             onSubmit: (value) => print(value),
+                             validate: (String? value) {
+                               if (value!.isEmpty) {
+                                 return 'id must not be empty';
+                               }
+                               return null;
+                             },
+                             controller: idController,
+                             type: TextInputType.text,
+                             label: 'Enter Your ID'
+                         ),
                       ),
                       // SizedBox(
                       //   height: 10.0,
@@ -122,10 +165,10 @@ class _LoginState extends State<Login> {
                           background: primaryColor,
                           function: () async {
                             if (formValidate.currentState!.validate()) {
-                              print(emailController.text);
+                              print(idController.text);
                               print(passwordController.text);
                               var message = await provider.signIn(
-                                  emailController.text,
+                                  idController.text,
                                   passwordController.text);
                               if (message == 'Done') {
                                 Navigator.pushNamedAndRemoveUntil(

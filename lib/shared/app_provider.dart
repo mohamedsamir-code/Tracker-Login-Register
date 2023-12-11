@@ -23,7 +23,7 @@ class AppProvider extends ChangeNotifier {
   //   }
   // }
 
-  Future<String> signUp(String email, String password, String confirmPassword, String name, String phoneNumber) async {
+  Future<String> signUp(String email, String password, String confirmPassword, String firstname, String lastname,String phoneNumber) async {
     if (password == confirmPassword) {
       try {
         UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -32,7 +32,8 @@ class AppProvider extends ChangeNotifier {
         );
 
         // Update the username and phone number
-        await userCredential.user!.updateDisplayName(name);
+        await userCredential.user!.updateDisplayName(firstname);
+        await userCredential.user!.updateDisplayName(lastname);
         await userCredential.user!.reload();
 
         // Update the phone number

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:tracker_login_register/screens/arrived_bus.dart';
+import 'package:tracker_login_register/screens/supervising_students.dart';
 
 import '../shared/constant.dart';
 
@@ -21,7 +21,7 @@ class _SplashState extends State<Splash> {
 
   void navigateTo() {
     Navigator.pushNamedAndRemoveUntil(
-        context, ArrivedBus.routeName, (route) => false);
+        context, SupervisingStudents.routeName, (route) => false);
   }
   Widget build(BuildContext context) {
     return Container(
