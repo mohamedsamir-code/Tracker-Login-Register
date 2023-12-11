@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tracker_login_register/screens/login.dart';
 import 'package:tracker_login_register/screens/profile.dart';
+import 'package:tracker_login_register/screens/support.dart';
 import 'package:tracker_login_register/shared/constant.dart';
 
 import 'bus_info.dart';
@@ -23,9 +24,20 @@ class Setting extends StatelessWidget {
                   onTap: () => Navigator.pushNamed(context, Profile.routeName),
                   child: Row(children: [
                     SizedBox(width: 130.0,),
-                    Text('Profile',style: TextStyle(color: Colors.white,fontSize: 30),),
+                    Image.asset('assets/ic_profile.PNG',width: 50,height: 50,),
                     SizedBox(width: 15,),
-                    Image.asset('assets/ic_profile.PNG',width: 50,height: 50,)
+                    Text('Profile',style: TextStyle(color: Colors.white,fontSize: 30),),
+                  ],
+                  ),
+                ),
+                SizedBox(height: 200.0,),
+                InkWell(
+                  onTap: () => Navigator.pushNamed(context, Support.routeName),
+                  child: Row(children: [
+                    SizedBox(width: 130.0,),
+                    Image.asset('assets/support.PNG',width: 50,height: 50,),
+                    SizedBox(width: 15,),
+                    Text('Support',style: TextStyle(color: Colors.white,fontSize: 30),),
                   ],
                   ),
                 ),
@@ -34,9 +46,9 @@ class Setting extends StatelessWidget {
                   onTap: () => Navigator.pushNamed(context, BusInfo.routeName),
                   child: Row(children: [
                     SizedBox(width: 130.0,),
-                    Text('Bus Info',style: TextStyle(color: Colors.white,fontSize: 30),),
+                    Image.asset('assets/ic_bus_info.PNG',width: 50,height: 50,),
                     SizedBox(width: 15,),
-                    Image.asset('assets/ic_bus_info.PNG',width: 50,height: 50,)
+                    Text('Bus Info',style: TextStyle(color: Colors.white,fontSize: 30),),
                   ],
                   ),
                 ),

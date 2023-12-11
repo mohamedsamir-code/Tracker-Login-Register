@@ -13,6 +13,7 @@ import 'package:tracker_login_register/screens/register.dart';
 import 'package:tracker_login_register/screens/splash.dart';
 import 'package:tracker_login_register/screens/student_sheet.dart';
 import 'package:tracker_login_register/screens/bus_driver.dart';
+import 'package:tracker_login_register/screens/support.dart';
 import 'package:tracker_login_register/screens/today_trip.dart';
 import 'package:tracker_login_register/shared/app_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Splash.routeName,
+      initialRoute: Home.routeName,
       routes: {
         Splash.routeName : (context) => Splash(),
         SupervisingStudents.routeName : (context) => SupervisingStudents(),
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
         Setting.routeName : (context) => Setting(),
         Profile.routeName : (context) => Profile(),
         BusInfo.routeName : (context) => BusInfo(),
+        Support.routeName : (context) => Support(),
       },
     );
   }
