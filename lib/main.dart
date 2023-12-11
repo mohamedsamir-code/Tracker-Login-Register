@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Home.routeName,
+      initialRoute: Splash.routeName,
       routes: {
         Splash.routeName : (context) => Splash(),
         SupervisingStudents.routeName : (context) => SupervisingStudents(),
