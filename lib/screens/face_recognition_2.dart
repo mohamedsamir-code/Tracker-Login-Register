@@ -1,10 +1,30 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:tracker_login_register/screens/face_recognition_3.dart';
 
 import '../shared/constant.dart';
 
-class FaceRecognitionTwo extends StatelessWidget {
-  const FaceRecognitionTwo({super.key});
-  static const String routeName = 'faceRecognitionTwo';
+// class FaceRecognitionTwo extends StatelessWidget {
+//   const FaceRecognitionTwo({super.key});
+//   static const String routeName = 'faceRecognitionTwo';
+class FaceRecognitionTwo extends StatefulWidget {
+  static const String routeName = 'splash';
+
+  @override
+  State<FaceRecognitionTwo> createState() => _FaceRecognitionTwoState();
+}
+
+class _FaceRecognitionTwoState extends State<FaceRecognitionTwo> {
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 4), navigateTo);
+  }
+
+  void navigateTo() {
+    Navigator.pushNamedAndRemoveUntil(
+        context, FaceRecognitionThree.routeName, (route) => false);
+  }
   @override
   Widget build(BuildContext context) {
     return Container(

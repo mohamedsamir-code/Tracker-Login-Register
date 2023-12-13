@@ -23,36 +23,36 @@ class Setting extends StatelessWidget {
                 InkWell(
                   onTap: () => Navigator.pushNamed(context, Profile.routeName),
                   child: Row(children: [
-                    SizedBox(width: 130.0,),
+                    SizedBox(width: 100.0,),
                     Image.asset('assets/ic_profile.PNG',width: 50,height: 50,),
                     SizedBox(width: 15,),
                     Text('Profile',style: TextStyle(color: Colors.white,fontSize: 30),),
                   ],
                   ),
                 ),
-                SizedBox(height: 200.0,),
+                SizedBox(height: 150.0,),
                 InkWell(
                   onTap: () => Navigator.pushNamed(context, Support.routeName),
                   child: Row(children: [
-                    SizedBox(width: 130.0,),
+                    SizedBox(width: 100.0,),
                     Image.asset('assets/support.PNG',width: 50,height: 50,),
                     SizedBox(width: 15,),
                     Text('Support',style: TextStyle(color: Colors.white,fontSize: 30),),
                   ],
                   ),
                 ),
-                SizedBox(height: 200.0,),
+                SizedBox(height: 150.0,),
                 InkWell(
                   onTap: () => Navigator.pushNamed(context, BusInfo.routeName),
                   child: Row(children: [
-                    SizedBox(width: 130.0,),
+                    SizedBox(width: 100.0,),
                     Image.asset('assets/ic_bus_info.PNG',width: 50,height: 50,),
                     SizedBox(width: 15,),
                     Text('Bus Info',style: TextStyle(color: Colors.white,fontSize: 30),),
                   ],
                   ),
                 ),
-                SizedBox(height: 200.0,),
+                SizedBox(height: 150.0,),
                 InkWell(
                   onTap: () => Navigator.pushNamedAndRemoveUntil(context, Login.routeName, (route) => false),
                   child: Row(children: [

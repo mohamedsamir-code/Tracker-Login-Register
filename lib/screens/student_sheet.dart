@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'notification.dart';
 class StudentSheet extends StatelessWidget {
   const StudentSheet({super.key});
   static const String routeName = 'student-sheet';
@@ -12,17 +14,19 @@ class StudentSheet extends StatelessWidget {
           ),
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.grey,
+                color: Color(0xffc2ccd2),
                 borderRadius: BorderRadius.all(
                   Radius.circular(
                     20.0,
                   ),
                 )),
-            width: double.infinity,
-            height: 40.0,
+            width: 396,
+            height: 66.0,
             child: Row(
               children: [
-                SizedBox(width: 20.0,),
+                SizedBox(width: 10.0,),
+                Image.asset('assets/supervisor_logo.png',height: 40,width: 40,),
+                SizedBox(width: 50.0,),
                 // IconButton(
                 //   onPressed: () => Drawer(
                 //     backgroundColor: thirdColor,
@@ -99,51 +103,124 @@ class StudentSheet extends StatelessWidget {
                       fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  width: 100.0,
+                  width: 30.0,
                 ),
                 Stack(
                   children: [
                     Padding(padding: EdgeInsets.symmetric(horizontal: 25,vertical: 10),child: CircleAvatar(backgroundColor: Colors.red,radius: 3.0,)),
-                    IconButton(onPressed: () => print('notification'), icon: Icon(Icons.notifications_none,color: Colors.black),)
+                    IconButton(onPressed: () => Navigator.pushNamed(context, Notifications.routeName), icon: Icon(Icons.notifications_none,color: Colors.black),)
                   ],
                 ),
               ],
             ),
           ),
         ),
-        Padding(padding: EdgeInsets.all(30,),child: Row(
+        Padding(padding: EdgeInsets.only(right: 150.0),child: Text('Number Of Attendees: 36',style: TextStyle(fontWeight: FontWeight.w700,fontSize: 16.0,color: Colors.white),),),
+        Padding(padding: EdgeInsets.all(20,),child: Row(
           children: [
             Image(image: AssetImage('assets/ahmed_mohamed.png')),
-            SizedBox(width: 10,),
+            SizedBox(width: 20,),
             Image(image: AssetImage('assets/hour_mohamed.png'),width: 100,height: 130,),
-            SizedBox(width: 10,),
+            SizedBox(width: 20,),
             Image(image: AssetImage('assets/kenzi_ahmed.png'),width: 100,height: 126,),
           ],
         ),),
-        Padding(padding: EdgeInsets.all(30),child: Row(
+        Padding(padding: EdgeInsets.all(20),child: Row(
           children: [
             Image(image: AssetImage('assets/adam_omar.png'),width: 100,height: 126,),
-            SizedBox(width: 10,),
+            SizedBox(width: 20,),
             Image(image: AssetImage('assets/jana_morad.png'),width: 100,height: 126,),
-            SizedBox(width: 10,),
+            SizedBox(width: 20,),
             Image(image: AssetImage('assets/maya_mohamed.png'),width: 100,height: 126,),
           ],
         ),),
-        Padding(padding: EdgeInsets.all(30,),child: Row(
+        Padding(padding: EdgeInsets.all(20,),child: Row(
           children: [
             Image(image: AssetImage('assets/mohamed_noah.png'),width: 100,height: 126,),
-            SizedBox(width: 10,),
+            SizedBox(width: 20,),
             Image(image: AssetImage('assets/rahaf_noah.png'),width: 100,height: 126,),
-            SizedBox(width: 10,),
+            SizedBox(width: 20,),
             Image(image: AssetImage('assets/mila.png'),width: 100,height: 126,),
           ],
         ),),
-        Padding(padding: EdgeInsets.all(30,),child: Row(
+        Padding(padding: EdgeInsets.all(20,),child: Row(
           children: [
             Image(image: AssetImage('assets/omar_ibrahim.png'),width: 100,height: 126,),
-            SizedBox(width: 10,),
+            SizedBox(width: 20,),
             Image(image: AssetImage('assets/lian_mohamed.png'),width: 100,height: 126,),
-            SizedBox(width: 10,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/yazan_adam.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(20,),child: Row(
+          children: [
+            Image(image: AssetImage('assets/ahmed_mohamed.png')),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/hour_mohamed.png'),width: 100,height: 130,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/kenzi_ahmed.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(20),child: Row(
+          children: [
+            Image(image: AssetImage('assets/adam_omar.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/jana_morad.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/maya_mohamed.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(20,),child: Row(
+          children: [
+            Image(image: AssetImage('assets/mohamed_noah.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/rahaf_noah.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/mila.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(20,),child: Row(
+          children: [
+            Image(image: AssetImage('assets/omar_ibrahim.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/lian_mohamed.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/yazan_adam.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(20,),child: Row(
+          children: [
+            Image(image: AssetImage('assets/ahmed_mohamed.png')),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/hour_mohamed.png'),width: 100,height: 130,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/kenzi_ahmed.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(20),child: Row(
+          children: [
+            Image(image: AssetImage('assets/adam_omar.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/jana_morad.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/maya_mohamed.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(20,),child: Row(
+          children: [
+            Image(image: AssetImage('assets/mohamed_noah.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/rahaf_noah.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/mila.png'),width: 100,height: 126,),
+          ],
+        ),),
+        Padding(padding: EdgeInsets.all(20,),child: Row(
+          children: [
+            Image(image: AssetImage('assets/omar_ibrahim.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
+            Image(image: AssetImage('assets/lian_mohamed.png'),width: 100,height: 126,),
+            SizedBox(width: 20,),
             Image(image: AssetImage('assets/yazan_adam.png'),width: 100,height: 126,),
           ],
         ),),

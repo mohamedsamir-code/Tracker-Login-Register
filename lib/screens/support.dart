@@ -11,19 +11,16 @@ class Support extends StatelessWidget {
           color: thirdColor,
           child: Scaffold(
             backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              backgroundColor: secondryColor,
-              centerTitle: true,
-              title: Text(
-                'Support',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
+            body: Padding(padding: EdgeInsets.all(25),child: Column(
+              children: [
+                Image.asset('assets/support_container.png'),
+                SizedBox(height: 15.0,),
+                Image.asset('assets/how_can_we_help_you_today.png'),
+                SizedBox(height: 60.0,),
+                Image.asset('assets/rectangle_phone.png'),
+              ],
+            ),)
         )
-      ],
-    );
+    )]);
   }
 }

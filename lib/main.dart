@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tracker_login_register/screens/bus_info.dart';
+import 'package:tracker_login_register/screens/face_recognition_3.dart';
+import 'package:tracker_login_register/screens/notification.dart';
 import 'package:tracker_login_register/screens/profile.dart';
 import 'package:tracker_login_register/screens/setting.dart';
 import 'package:tracker_login_register/screens/supervising_students.dart';
@@ -57,6 +59,8 @@ class MyApp extends StatelessWidget {
         Profile.routeName : (context) => Profile(),
         BusInfo.routeName : (context) => BusInfo(),
         Support.routeName : (context) => Support(),
+        FaceRecognitionThree.routeName : (context) => FaceRecognitionThree(),
+        Notifications.routeName : (context) => Notifications(),
       },
     );
   }
