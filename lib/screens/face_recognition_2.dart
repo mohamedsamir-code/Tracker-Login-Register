@@ -9,7 +9,7 @@ import '../shared/constant.dart';
 //   const FaceRecognitionTwo({super.key});
 //   static const String routeName = 'faceRecognitionTwo';
 class FaceRecognitionTwo extends StatefulWidget {
-  static const String routeName = 'splash';
+  static const String routeName = 'face-recognition-two';
 
   @override
   State<FaceRecognitionTwo> createState() => _FaceRecognitionTwoState();
