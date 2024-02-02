@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'home.dart';
 import 'notification.dart';
+
 class StudentSheet extends StatelessWidget {
   const StudentSheet({super.key});
   static const String routeName = 'student-sheet';
@@ -24,19 +26,31 @@ class StudentSheet extends StatelessWidget {
             height: 66.0,
             child: Row(
               children: [
-                SizedBox(width: 10.0,),
-                Image.asset('assets/supervisor_logo.png',height: 40,width: 40,),
-                SizedBox(width: 50.0,),
-                // IconButton(
-                //   onPressed: () => Drawer(
-                //     backgroundColor: thirdColor,
-                //     child: ListView(
-                //       children: [
-                //         const DrawerHeader(
-                //           decoration: BoxDecoration(
-                //             color: Color(0xff0C344C),
-                //           ),
-                //           child: Image(
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  //    Image.asset('assets/supervisor_logo.png',height: 40,width: 40,),
+                  InkWell(
+                    child: Image.asset(
+                      'assets/supervisor_logo.png',
+                      height: 40,
+                      width: 40,
+                    ),
+                    onTap: () => Navigator.pushNamed(context, Home.routeName),
+                  ),
+                  SizedBox(
+                    width: 50.0,
+                  ),
+                  // IconButton(
+                  //   onPressed: () => Drawer(
+                  //     backgroundColor: thirdColor,
+                  //     child: ListView(
+                  //       children: [
+                  //         const DrawerHeader(
+                  //           decoration: BoxDecoration(
+                  //             color: Color(0xff0C344C),
+                  //           ),
+                  //           child: Image(
                 //             image: AssetImage(
                 //               'assets/logo.png',
                 //             ),

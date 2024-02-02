@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tracker_login_register/screens/home.dart';
 import 'package:tracker_login_register/screens/notification.dart';
+
 class Live extends StatelessWidget {
   const Live({super.key});
   static const String routeName = 'live';
@@ -24,9 +26,20 @@ class Live extends StatelessWidget {
               height: 66.0,
               child: Row(
                 children: [
-                  SizedBox(width: 10.0,),
-                  Image.asset('assets/supervisor_logo.png',height: 40,width: 40,),
-                  SizedBox(width: 50.0,),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  InkWell(
+                    child: Image.asset(
+                      'assets/supervisor_logo.png',
+                      height: 40,
+                      width: 40,
+                    ),
+                    onTap: () => Navigator.pushNamed(context, Home.routeName),
+                  ),
+                  SizedBox(
+                    width: 50.0,
+                  ),
                   // IconButton(
                   //   onPressed: () => Drawer(
                   //     backgroundColor: thirdColor,

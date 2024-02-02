@@ -11,7 +11,7 @@ class TodayTrip extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.all(
-            30,
+            35,
           ),
           child: Container(
             decoration: BoxDecoration(
@@ -142,21 +142,66 @@ class TodayTrip extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                 children: [
-                  Image.asset('assets/image_row.png',height: 50,),
-                  Image.asset('assets/image_row_two.png',height: 50,),
-                  Image.asset('assets/image_row.png',height: 50,),
-                  Image.asset('assets/image_row_two.png',height: 50,),
-                  Image.asset('assets/image_row.png',height: 50,),
-                  Image.asset('assets/image_row_two.png',height: 50,),
-                  Image.asset('assets/image_row.png',height: 50,),
-                  Image.asset('assets/image_row_two.png',height: 50,),
-                  Image.asset('assets/image_row.png',height: 50,),
-                  Image.asset('assets/image_row_two.png',height: 50,),
-                ],
+                    Image.asset(
+                      'assets/image_row.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row_two.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row_two.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row_two.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row_two.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row_two.png',
+                      height: 60,
+                    ),
+                    Image.asset('assets/image_row_two.png', height: 60),
+                    Image.asset('assets/image_row.png', height: 60),
+                    Image.asset('assets/image_row_two.png', height: 60),
+                    Image.asset('assets/image_row.png', height: 60),
+                    Image.asset('assets/image_row_two.png', height: 60),
+                    Image.asset('assets/image_row.png', height: 60),
+                    Image.asset('assets/image_row_two.png', height: 60),
+                    Image.asset('assets/image_row.png', height: 60),
+                    Image.asset('assets/image_row_two.png', height: 60),
+                    Image.asset('assets/image_row.png', height: 60),
+                  ],
                 ),
               ),
-              SizedBox(height: 60.0,),
-              InkWell(child: Image.asset('assets/blue_start_container.png'),onTap: () => Navigator.pushNamed(context, Live.routeName),),
+              SizedBox(
+                height: 50.0,
+              ),
+              InkWell(
+                child: Image.asset('assets/start_button.png'),
+                onTap: () => Navigator.pushNamed(context, Live.routeName),
+              ),
             ],
           ),
         ),
@@ -185,20 +230,63 @@ class TodayTrip extends StatelessWidget {
               SizedBox(height: 20.0,),
               SingleChildScrollView(scrollDirection: Axis.horizontal,child: Row(
                 children: [
-                  Image.asset('assets/image_row_two.png',height: 50,),
-                  Image.asset('assets/image_row.png',height: 50,),
-                  Image.asset('assets/image_row_two.png',height: 50,),
-                  Image.asset('assets/image_row.png',height: 50,),
-                  Image.asset('assets/image_row_two.png',height: 50,),
-                  Image.asset('assets/image_row.png',height: 50,),
-                  Image.asset('assets/image_row_two.png',height: 50,),
-                  Image.asset('assets/image_row.png',height: 50,),
-                  Image.asset('assets/image_row_two.png',height: 50,),
-                  Image.asset('assets/image_row.png',height: 50,),
-                ],
-              ),),
-              SizedBox(height: 60.0,),
-              Image.asset('assets/darkBlue_start_container.png'),
+                    Image.asset('assets/image_row_two.png', height: 60),
+                    Image.asset('assets/image_row.png', height: 60),
+                    Image.asset('assets/image_row_two.png', height: 60),
+                    Image.asset('assets/image_row.png', height: 60),
+                    Image.asset('assets/image_row_two.png', height: 60),
+                    Image.asset('assets/image_row.png', height: 60),
+                    Image.asset('assets/image_row_two.png', height: 60),
+                    Image.asset('assets/image_row.png', height: 60),
+                    Image.asset('assets/image_row_two.png', height: 60),
+                    Image.asset('assets/image_row.png', height: 60),
+                    Image.asset(
+                      'assets/image_row.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row_two.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row_two.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row_two.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row_two.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row.png',
+                      height: 60,
+                    ),
+                    Image.asset(
+                      'assets/image_row_two.png',
+                      height: 60,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 50.0,
+              ),
+              Image.asset('assets/start_button.png'),
             ],
           ),
         ),
