@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tracker_login_register/screens/forgot_password.dart';
 import 'package:tracker_login_register/screens/home.dart';
 import 'package:tracker_login_register/screens/register.dart';
 import 'package:tracker_login_register/shared/constant.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import '../shared/app_provider.dart';
 import '../shared/components.dart';
 import '../shared/utils.dart';
@@ -158,8 +160,27 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       SizedBox(
+                        height: 5,
+                      ),
+                      GestureDetector(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 276.0),
+                          child: Text(
+                            'Forget Password',
+                            style: TextStyle(
+                              color: Color(0xff8498a4),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                        onTap: () => Navigator.pushNamed(
+                            context, ForgotPassword.routeName),
+                      ),
+                      SizedBox(
                         height: 80,
                       ),
+
                       defaultButton(
                           textStyle: Colors.black,
                           background: primaryColor,

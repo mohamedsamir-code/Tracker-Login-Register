@@ -64,12 +64,31 @@ class _HomeState extends State<Home> {
               selectedItemColor: primaryColor,
               items:
               [
-               BottomNavigationBarItem(icon: Icon(Icons.directions_bus_rounded),label: 'Today Trip',backgroundColor: secondryColor),
-               BottomNavigationBarItem(icon: Icon(Icons.location_on_outlined),label: 'Live',backgroundColor: secondryColor),
-               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_face_recognition.png'),),label: 'Face Recognition',backgroundColor: secondryColor),
-               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/ic_student_sheet.png'),),label: 'Student Sheet',backgroundColor: secondryColor),
-               BottomNavigationBarItem(icon: Icon(Icons.settings),label: 'Setting',backgroundColor: secondryColor),
-            ],
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.directions_bus_rounded),
+                    label: 'Today Trip',
+                    backgroundColor: secondryColor),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.location_on_outlined),
+                    label: 'Live',
+                    backgroundColor: secondryColor),
+                BottomNavigationBarItem(
+                    icon: ImageIcon(
+                      AssetImage('assets/face-recognition.png'),
+                    ),
+                    label: 'Face Recognition',
+                    backgroundColor: secondryColor),
+                BottomNavigationBarItem(
+                    icon: ImageIcon(
+                      AssetImage('assets/Black.png'),
+                    ),
+                    label: 'Student Sheet',
+                    backgroundColor: secondryColor),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.settings),
+                    label: 'Setting',
+                    backgroundColor: secondryColor),
+              ],
             ),
           )
         ],

@@ -99,9 +99,8 @@ class TodayTrip extends StatelessWidget {
                 //   width: 50.0,
                 // ),
                 Text(
-                  'Today Trips',
-                  style: TextStyle(
-                      fontSize: 20.0, fontWeight: FontWeight.bold),
+                     '   Today Trips',
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   width: 40.0,

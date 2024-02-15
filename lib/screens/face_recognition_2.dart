@@ -27,25 +27,44 @@ class _FaceRecognitionTwoState extends State<FaceRecognitionTwo> {
   }
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: thirdColor,
-        child: Stack(
-          children: [
-            Scaffold(
-              backgroundColor: Colors.transparent,
-              body: Padding(padding: EdgeInsets.all(25.0),child: Column(
-                children: [
-                  Image(image: AssetImage('assets/child_recognized.png')),
-                  SizedBox(height: 50.0,),
-                  Image(image: AssetImage('assets/face_lock.png')),
-                  SizedBox(height: 90.0,),
-                  Image(image: AssetImage('assets/seventy_percent.png')),
-                  SizedBox(width: 10.0,),
-                  Text('Scanning...',style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold,color: Colors.white),),
-                ],
-              ),),
-            ),
-          ],
-        ));
+    return Center(
+      child: Container(
+          color: thirdColor,
+          child: Stack(
+            children: [
+              Scaffold(
+                backgroundColor: Colors.transparent,
+                body: Padding(
+                  padding: EdgeInsets.only(left: 50.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(image: AssetImage('assets/child_recognized.png')),
+                      SizedBox(
+                        height: 50.0,
+                      ),
+                      Image(image: AssetImage('assets/face_lock.png')),
+                      SizedBox(
+                        height: 90.0,
+                      ),
+                      Image(image: AssetImage('assets/seventy_percent.png')),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Text(
+                        'Scanning...',
+                        style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          )),
+    );
   }
 }

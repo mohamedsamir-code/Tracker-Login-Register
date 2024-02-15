@@ -246,11 +246,34 @@ class _RegisterState extends State<Register> {
                               print(passwordController.text);
                               print(confirmPasswordController.text);
                               print(phoneController.text);
-                              var message = await provider.signUp(emailController.text, passwordController.text, confirmPasswordController.text, firstNameController.text , lastNameController.text,phoneController.text);
+                              var message = await provider.signUp(
+                                  emailController.text,
+                                  passwordController.text,
+                                  confirmPasswordController.text,
+                                  firstNameController.text,
+                                  lastNameController.text,
+                                  phoneController.text);
                               //var m = await provider.verifyWithPhone(phoneController.text);
-                              if(message == 'Done'){
-                                Navigator.pushNamedAndRemoveUntil(context, Home.routeName, (route) => false);
-                              }else{
+                              if (message.isNotEmpty) {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      title: Text('Sucessfully Signed Up'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pushNamedAndRemoveUntil(
+                                                  context,
+                                                  Home.routeName,
+                                                  (route) => false),
+                                          child: Text('ok'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              } else {
                                 DialogUtils.showDialogMessage(context, message);
                               }
                             }

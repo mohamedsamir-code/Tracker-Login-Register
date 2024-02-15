@@ -1,12 +1,13 @@
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:tracker_login_register/screens/bus_supervisor.dart';
+import 'package:dots_indicator/dots_indicator.dart';
+import 'package:tracker_login_register/screens/login.dart';
 
 import '../shared/components.dart';
 import '../shared/constant.dart';
+import 'forgot_password.dart';
 
-class SupervisingStudents extends StatelessWidget {
-  static const String routeName = 'supervising-students';
+class BusSupervisor extends StatelessWidget {
+  static const String routeName = 'bus-supervisor';
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +18,13 @@ class SupervisingStudents extends StatelessWidget {
           Scaffold(
             backgroundColor: Colors.transparent,
             body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
+              child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'assets/supervising_students.png',
+                      'assets/bus_supervisor.png',
                       width: 372,
                       height: 372,
                     ),
@@ -32,7 +32,7 @@ class SupervisingStudents extends StatelessWidget {
                       height: 30,
                     ),
                     Text(
-                      'Supervising Students',
+                      'Bus Supervisor',
                       style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 32,
@@ -42,25 +42,31 @@ class SupervisingStudents extends StatelessWidget {
                       height: 15,
                     ),
                     Text(
-                      'On the bus from going to returning and',
+                      'Coordinating appointments wit the bus driver',
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 15,
                     ),
                     Text(
-                      'assuming all their responsibilities',
+                      'and the students families, Supervising',
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      'children during the trip',
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    //
                     DotsIndicator(
                       dotsCount: 2,
-                      position: 0,
+                      position: 1,
                       decorator: DotsDecorator(
-                        activeColors: [Color(0xfff2ba52), Colors.black],
+                        activeColors: [Colors.black, Color(0xfff2ba52)],
                         size: const Size.square(9.0),
                         activeSize: const Size(35.0, 9.0),
                         activeShape: RoundedRectangleBorder(
@@ -74,13 +80,13 @@ class SupervisingStudents extends StatelessWidget {
                         textStyle: Colors.black,
                         background: primaryColor,
                         function: () => Navigator.pushNamedAndRemoveUntil(
-                            context, BusSupervisor.routeName, (route) => false),
+                            context, Login.routeName, (route) => false),
                         text: 'Next'),
                   ],
                 ),
               ),
             ),
-          ),
+          )
         ],
       ),
     );

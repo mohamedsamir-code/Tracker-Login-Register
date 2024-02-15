@@ -2,6 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AppProvider extends ChangeNotifier {
+  Future<dynamic> changePassword(String password) async {
+    var user = await FirebaseAuth.instance.currentUser!;
+    user.updatePassword(password).then((_) {
+      print('Successfully changed password');
+    }).catchError((error) {
+      print("Password can't be changed" + error.toString());
+    });
+  }
+
   // Future<String> signUp(String email, String password) async {
   //   try {
   //     final credential =

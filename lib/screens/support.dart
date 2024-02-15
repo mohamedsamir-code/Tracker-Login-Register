@@ -16,11 +16,13 @@ class Support extends StatelessWidget {
           color: thirdColor,
           child: Scaffold(
               backgroundColor: Colors.transparent,
-            body: Padding(padding: EdgeInsets.all(25),child: Column(
-              children: [
+            body: Padding(
+                padding: EdgeInsets.all(11.4),
+                child: Column(
+                  children: [
                     Padding(
                       padding: EdgeInsets.all(
-                        10,
+                        23,
                       ),
                       child: Container(
                         decoration: BoxDecoration(
@@ -47,7 +49,7 @@ class Support extends StatelessWidget {
                                   Navigator.pushNamed(context, Home.routeName),
                             ),
                             SizedBox(
-                              width: 50.0,
+                              width: 80.0,
                             ),
                             // IconButton(
                             //   onPressed: () => Drawer(
@@ -120,7 +122,7 @@ class Support extends StatelessWidget {
                             //   width: 50.0,
                             // ),
                             Text(
-                              'Support',
+                              ' Support',
                               style: TextStyle(
                                   fontSize: 20.0, fontWeight: FontWeight.bold),
                             ),

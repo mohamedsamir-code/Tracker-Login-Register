@@ -38,7 +38,7 @@ class BusInfo extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.all(
-                30,
+                15,
               ),
               child: Container(
                 decoration: BoxDecoration(
@@ -138,12 +138,12 @@ class BusInfo extends StatelessWidget {
                     //   width: 50.0,
                     // ),
                     Text(
-                      'Bus Data',
+                      '    Bus Data',
                       style: TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      width: 30.0,
+                      width: 40.0,
                     ),
                     Stack(
                       children: [
