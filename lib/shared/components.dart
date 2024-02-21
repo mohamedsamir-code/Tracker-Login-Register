@@ -29,14 +29,15 @@ Widget defaultFormField({
   VoidCallback? suffixPressed,
 }) =>
     TextFormField(
+      style: TextStyle(color: Colors.white),
       controller: controller,
       keyboardType: type,
       onChanged: (value) {
-          print(onChange!(value));
+        print(onChange!(value));
       },
       obscureText: isPassword,
       onFieldSubmitted: (value) {
-          print(onSubmit!(value));
+        print(onSubmit!(value));
       },
       decoration: InputDecoration(
         labelText: label,
